@@ -1,0 +1,51 @@
+info:
+  description: @project.description@
+  version: @project.version@
+
+spring:
+  application:
+    name: @project.name@
+  data:
+    mongodb:
+      auto-index-creation: true
+      uri: mongodb://adminAfrilins:adminAfrilins@158.69.27.218:27018/WEBG_ARCHIVAGE?authSource=admin
+    web:
+      pageable:
+        default-page-size: 1000000000
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: ${EMAIL_USERNAME}
+    password:  ${EMAIL_PASSWORD}
+  jpa:
+    properties:
+      hibernate:
+        jdbc:
+          time_zone: UTC
+
+mongock:
+  change-logs-scan-package: sn.webg.archivage.service.configurations.dbmigrations
+
+security-jwt:
+  # This token must be encoded using Base64 and be at least 256 bits long (you can type `openssl rand -base64 64` on your command line to generate a 512 bits one)
+  base64-secret: MmMzN2VlODJhN2U3NDk2NzQ2ZjE4Nzg3ZDkxYzg5ZDdkZDEwMTdjYWM3OWRiYjQwOWU4M2NiYTdmOThkYTU3OTI3Nzg2YTAwYTc2ODEyMzgwNjhiYTU2MTkyNDNmNWJiODc5Y2M4MWVhNjJhYTU3ZjRmNzEzZDhlZmYxNDlhYWM=
+  # Token is valid 24 hours
+  token-validity-in-seconds: 86400
+  token-validity-in-seconds-for-remember-me: 2592000
+
+webg-mail:
+  enabled: false
+  from: admin@admin.com
+  base-url: http://localhost:4200
+
+archive:
+   cors:
+     allowed-origins: "http://74.208.52.139:9092"
+     allowed-methods: "*"
+     allowed-headers: "*"
+     exposed-headers: "Authorization,Link"
+     allow-credentials: true
+     max-age: 1800
+
+storage-document:
+  file-storage-root-path: /opt/archivage/storage
