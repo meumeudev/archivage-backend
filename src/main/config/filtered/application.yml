@@ -40,7 +40,7 @@ webg-mail:
 
 archive:
    cors:
-     allowed-origins: "https://ged-archive.herokuapp.com/agent"
+     allowed-origins: "https://ged-archive.herokuapp.com"
      allowed-methods: "*"
      allowed-headers: "*"
      exposed-headers: "Authorization,Link"
